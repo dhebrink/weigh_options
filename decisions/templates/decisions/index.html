@@ -1,0 +1,15 @@
+<h2>Welcome to WYO!!!</h2>
+
+{% if decision_templates %}
+    <ul>
+        {% for template in decision_templates %}
+            <li>
+                {{ template }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>
+        There do not appear to be any templates yet...
+    </p>
+{% endif %}
