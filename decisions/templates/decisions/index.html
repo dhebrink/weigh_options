@@ -1,15 +1,30 @@
-<h2>Welcome to WYO!!!</h2>
+{% include "../base.html" %}
 
-{% if decision_templates %}
-    <ul>
-        {% for template in decision_templates %}
-            <li>
-                {{ template }}
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>
-        There do not appear to be any templates yet...
-    </p>
-{% endif %}
+{% block body %}
+<div class="jumbotron m5">
+    <div class="container">
+        <h2>Welcome to Weigh-Your-Options!!!</h2>
+        <p>
+            Need help making an important decision? Use one of these pre-built decision templates
+            or build your own! Each prompt can be customized to fit your preferences and reused.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    {% if decision_templates %}
+        <ul>
+            {% for template in decision_templates %}
+                <li>
+                    {{ template }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>
+            There do not appear to be any templates yet...
+        </p>
+    {% endif %}
+</div>
+
+{% endblock %}

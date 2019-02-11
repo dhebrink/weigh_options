@@ -1,0 +1,24 @@
+{% load static %}
+
+<html>
+
+    <head>
+        <title>{% block title %} GLOBAL {% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'decisions/bootstrap/css/bootstrap.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'decisions/bootstrap/css/bootstrap.css.map' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'decisions/bootstrap/css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'decisions/bootstrap/css/bootstrap.min.css.map' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'decisions/bootstrap/css/bootstrap-theme.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'decisions/bootstrap/css/bootstrap-theme.css.map' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'decisions/bootstrap/css/bootstrap-theme.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'decisions/bootstrap/css/bootstrap-theme.min.css.map' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'decisions/css/my-style.css' %}" />
+
+    </head>
+
+    <body>
+        {% block body %}
+        {% endblock %}
+    </body>
+
+</html>
