@@ -64,6 +64,7 @@ class Prompt(Model):
         self.date_deleted = timezone.now()
         self.save()
 
+    @property
     def answer_options_parsed(self):
         options_str = self.answer_options or ''
         options = options_str.split('~')
