@@ -1,0 +1,37 @@
+{% for prompt in prompts %}
+
+    {% if prompt.answer_type == "bool" %}
+        <div class="form-group checkbox">
+            <label class="control-label">
+                <input type="checkbox"> {{ prompt.text }}
+            </label>
+        </div>
+
+    {% elif prompt.answer_type == "free-form" %}
+        <div class="form-group">
+            <label for="{{ prompt.id }}">{{ prompt.text }}</label>
+            <textarea class="form-control" rows="4" name="{{ prompt.id }}"></textarea>
+        </div>
+
+    {% elif prompt.answer_type == "single-select" %}
+        <div class="form-group">
+            <label for="{{ prompt.id }}">{{ prompt.text }}</label>
+            <select class="form-control" name="{{ prompt.id }}">
+                {% for opt in prompt.answer_options_parsed %}
+                    <option>{{ opt }}</option>
+                {% endfor %}
+            </select>   
+        </div>
+
+    {% elif prompt.answer_type == "multi-select" %}
+        <div class="form-control">
+            <label for="{{ prompt.id }}">{{ prompt.text }}</label>
+            <select class="form-control" name="{{ prompt.id }}" multiple>
+                {% for opt in prompt.answer_options_parsed %}
+                    <option>{{ opt }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    {% endif %}
+
+{% endfor %}

@@ -1,22 +1,13 @@
 {% include "../base.html" %}
 
 {% block body %}
-<div class="jumbotron m5">
-    <div class="container">
-        <h2>Welcome to Weigh-Your-Options!!!</h2>
-        <p>
-            Need help making an important decision? Use one of these pre-built decision templates
-            or build your own! Each prompt can be customized to fit your preferences and reused.
-        </p>
-    </div>
-</div>
-
 <div class="container">
+    <h2>Pre-Built Templates</h2>
     {% if decision_templates %}
         <ul>
             {% for template in decision_templates %}
                 <li>
-                    {{ template }}
+                    <a href="{% url 'decisions:preview' template.id %}" >{{ template }}</a>
                 </li>
             {% endfor %}
         </ul>

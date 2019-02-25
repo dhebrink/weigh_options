@@ -1,0 +1,27 @@
+{% include "../base.html" %}
+
+<a href="{% url 'decisions:index' %}">Back to List</a>
+<br/>
+<a href="{% url 'decisions:preview' copy.template_id %}">Back to Template</a>
+<hr/>
+
+{% block body %}
+<form class="form-horizontal" action="{% url 'decisions:save_copy' %}" method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label class="control-label col-sm-4" for="label">
+            Title
+            <input class="form-control" type="text" value="{{ copy.label }}" name="label" />
+        </label>
+    </div>
+
+    {% with prompts=copy.template.prompt_set.all %}
+        {% include '../prompt_form.html' %}
+    {% endwith %}
+
+    <input type="hidden" value="{{ copy.id }}" name="copy_id" />
+    <button type="submit" class="btn btn-default">Save</button>
+
+</form>
+{% endblock %}

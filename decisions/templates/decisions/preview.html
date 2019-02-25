@@ -1,0 +1,32 @@
+{% include "../base.html" %}
+
+{% block body %}
+
+<div class="container">
+    <p>
+        <a href="{% url 'decisions:index' %}">Back to List</a>
+    </p>
+
+    {% if error_message %}
+        <p class="error">
+            An error occurred: {{ error_message }}
+        </p>
+    {% endif %}
+
+    <h2>{{ decision_template.name }}</h2>
+    <hr/>
+
+    <div class="form-horizontal">
+        {% with prompts=decision_template.prompt_set.all %}
+            {% include "../prompt_form.html" %}
+        {% endwith %}
+    </div>
+
+    <br/>
+    <form class="form-horizontal" method="POST" action="{% url 'decisions:copy' %}">
+        {% csrf_token %}
+        <input type="hidden" name="template_id" value="{{ decision_template.id }}" />
+        <button type="submit" class="btn btn-default">Use This Template</button>
+    </form>
+</div>
+{% endblock %}
