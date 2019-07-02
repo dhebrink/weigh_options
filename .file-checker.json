@@ -1,3 +1,12 @@
 {
-	"filename": "manage.py"
+	"required": [
+		"manage.py",
+		"README.md"
+	],
+	"cautionary": {
+		"weigh_options/wsgi.py": "You have modified a WSGI config. Pay close attention and be careful!!"
+	},
+	"dependent": {
+		"decisions/urls.py": "weigh_options/urls.py"
+	}
 }
